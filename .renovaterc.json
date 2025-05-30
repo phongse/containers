@@ -1,0 +1,51 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>phongse/renovate-config",
+    "github>phongse/renovate-config:autoMerge.json",
+    "github>phongse/renovate-config:labels.json",
+    "github>phongse/renovate-config:semanticCommits.json",
+    "docker:enableMajor"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Process Annotations in Docker Bake",
+      "managerFilePatterns": ["/(^|/)docker-bake\\.hcl$/"],
+      "matchStrings": [
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\\n.+ = \"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "description": "Process APK Annotations in Dockerfile",
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "matchStrings": [
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\\n.+?_VERSION=\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}repology{{/if}}",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": ["Release Rules for Application Updates"],
+      "addLabels": ["app/{{parentDir}}"],
+      "additionalBranchPrefix": "{{parentDir}}-",
+      "commitMessageExtra": "( {{currentVersion}} → {{newVersion}} )",
+      "commitMessageTopic": "{{depName}}",
+      "matchFileNames": ["**/docker-bake.hcl", "**/Dockerfile"],
+      "semanticCommitScope": "{{parentDir}}",
+      "semanticCommitType": "release"
+    },
+    {
+      "description": ["Auto-merge Application Updates"],
+      "matchFileNames": ["**/docker-bake.hcl"],
+      "automerge": true,
+      "automergeType": "pr",
+      "ignoreTests": false
+    }
+  ]
+}
