@@ -1,0 +1,15 @@
+---
+schemaVersion: "2.0.0"
+fileExistenceTests:
+  - name: ca-certificates
+    path: /usr/share/ca-certificates/
+    shouldExist: true
+  - name: catatonit
+    path: /usr/bin/catatonit
+    shouldExist: true
+  - name: curl
+    path: /usr/bin/curl
+    shouldExist: true
+  - name: tzdata
+    path: /usr/share/zoneinfo/
+    shouldExist: true
