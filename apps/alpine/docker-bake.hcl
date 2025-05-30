@@ -10,7 +10,7 @@ variable "VERSION" {
 }
 
 variable "SOURCE" {
-  default = "https://github.com/actions/runner"
+  default = "https://gitlab.alpinelinux.org/alpine/aports"
 }
 
 group "default" {
