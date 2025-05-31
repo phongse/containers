@@ -46,6 +46,12 @@
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": false
+    },
+    {
+      "description": ["Disable Dockerfile syntax directive digest pinning"],
+      "matchPackageNames": ["docker/dockerfile"],
+      "matchManagers": ["dockerfile"],
+      "pinDigests": false
     }
   ]
 }
