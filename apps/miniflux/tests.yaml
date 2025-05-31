@@ -1,0 +1,14 @@
+---
+schemaVersion: "2.0.0"
+fileExistenceTests:
+  - name: miniflux
+    path: /app/bin/miniflux
+    shouldExist: true
+  - name: entrypoint.sh
+    path: /app/entrypoint.sh
+    shouldExist: true
+commandTests:
+  - name: "entrypoint"
+    command: "/app/entrypoint.sh"
+    exitCode: 1
+    expectedError: [".*dial tcp \\[::1\\]:5432: connect: connection refused"]
