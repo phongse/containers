@@ -9,3 +9,5 @@ port:
 http:
   http://localhost:8384:
     status: 200
+  http://localhost:8384/rest/noauth/health:
+    status: 200

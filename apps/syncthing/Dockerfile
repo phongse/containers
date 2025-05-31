@@ -23,6 +23,8 @@ ENV \
 COPY --chown=root:root --chmod=755 . /app
 COPY --from=build --chown=root:root --chmod=755 /syncthing /app/bin/syncthing
 
+HEALTHCHECK --interval=10s --timeout=2s --start-period=10s CMD ["/usr/bin/curl", "-fkLs", "-o", "/dev/null", "http://localhost:8384/rest/noauth/health"]
+
 WORKDIR /config
 VOLUME ["/config"]
 
