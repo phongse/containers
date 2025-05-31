@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
+process:
+  ntfy:
+    running: true
+port:
+  tcp6:2586:
+    listening: true
+http:
+  http://localhost:2586/v1/health:
+    status: 200

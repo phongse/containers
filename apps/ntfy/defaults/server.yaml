@@ -1,0 +1,11 @@
+# https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
+
+# base-url: "https://example.com"
+listen-http: ":2586"
+enable-login: true
+auth-default-access: "deny-all"
+auth-file: "/config/auth.db"
+cache-file: "/config/cache.db"
+# attachment-cache-dir: "/config/attachments-cache"
+# behind-proxy: true
+# web-root: disable
