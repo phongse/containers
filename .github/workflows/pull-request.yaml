@@ -1,6 +1,7 @@
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Pull Request
+permissions: {}
 
 on:
   merge_group:
@@ -12,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changed-files: ${{ steps.changed-files.outputs.changed_files }}
+    permissions:
+      contents: read
     steps:
       - name: Get changed files
         id: changed-files
@@ -44,6 +47,8 @@ jobs:
     name: Build Success
     needs: ["build"]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Any jobs failed?
         if: ${{ contains(needs.*.result, 'failure') }}

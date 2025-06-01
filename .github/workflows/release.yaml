@@ -1,6 +1,7 @@
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Release
+permissions: {}
 
 on:
   push:
@@ -24,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changed-files: ${{ steps.changed-files.outputs.changed_files }}
+    permissions:
+      contents: read
     steps:
       - name: Get Changed Files
         id: changed-files
@@ -40,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       apps: ${{ steps.apps.outputs.apps }}
+    permissions:
+      contents: read
     steps:
       - name: Get Apps
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
@@ -80,6 +85,8 @@ jobs:
     name: Build Success
     needs: ["build"]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Any jobs failed?
         if: ${{ contains(needs.*.result, 'failure') }}
