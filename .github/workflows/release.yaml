@@ -64,12 +64,6 @@ jobs:
     name: Build ${{ matrix.app }}
     needs: ["changed"]
     uses: ./.github/workflows/app-builder.yaml
-    permissions:
-      attestations: write
-      contents: write
-      id-token: write
-      packages: write
-      security-events: write
     secrets: inherit
     strategy:
       matrix:
@@ -85,8 +79,6 @@ jobs:
     name: Build Success
     needs: ["build"]
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - name: Any jobs failed?
         if: ${{ contains(needs.*.result, 'failure') }}
