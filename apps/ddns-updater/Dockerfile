@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1
 
-# We build ddns-updater to patch critical vulnerability in golang stdlib
 FROM golang:1.24.3-alpine3.22 AS build
 ARG TARGETARCH
 ARG VERSION
@@ -21,7 +20,8 @@ RUN \
         -X 'main.version=$VERSION' \
         -X 'main.date=$(date +"%Y-%m-%d")' \
         -X 'main.commit=PATCHED-BUILD' \
-        " -o app cmd/ddns-updater/main.go
+        " -o app cmd/ddns-updater/main.go \
+    && rm -rf /app/patches/
 
 FROM ghcr.io/phongse/alpine:3.22.0@sha256:130900fb71b3a12b0345432d380e42d5ac7da6709f67239e7305ddd3dc43405a
 
