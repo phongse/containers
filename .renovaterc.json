@@ -17,7 +17,7 @@
       ],
       "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
-      "autoReplaceStringTemplate": "datasource={{{datasource}}} depName={{{depName}}}{{#if versioning}}versioning={{{versioning}}}{{/if}}\n  default = \"{{{newValue}}}\"{{#if newDigest}}\n}\n\nvariable \"DIGEST\" {\n  default = \"{{{newDigest}}}\"\n}{{/if}}"
+      "autoReplaceStringTemplate": "datasource={{{datasource}}} depName={{{depName}}}{{#if (equals versioning 'semver')}}{{else}} versioning={{{versioning}}}{{/if}}\n  default = \"{{{newValue}}}\"{{#if (and currentDigest newDigest)}}\n}\n\nvariable \"DIGEST\" {\n  default = \"{{{newDigest}}}\"\n}{{/if}}"
     },
     {
       "customType": "regex",
