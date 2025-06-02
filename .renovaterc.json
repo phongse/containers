@@ -13,10 +13,11 @@
       "description": "Process Annotations in Docker Bake",
       "managerFilePatterns": ["/(^|/)docker-bake\\.hcl$/"],
       "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\\n.+ = \"(?<currentValue>[^\"]+)\""
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: versioning=(?<versioning>\\S+))?\\n.+ = \"(?<currentValue>[^\"]+)\"(?:\\n}\\s+variable \"DIGEST\"\\s*{\\n.+ = \"(?<currentDigest>[^\"]+)\"\n})?"
       ],
       "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "autoReplaceStringTemplate": "depName={{{depName}}} datasource={{{datasource}}}{{#if versioning}}versioning={{{versioning}}}{{/if}}\n  default = \"{{{newValue}}}\"{{#if newDigest}}\n}\n\nvariable \"DIGEST\" {\n  default = \"{{{newDigest}}}\"\n}{{/if}}"
     },
     {
       "customType": "regex",
