@@ -1,4 +1,4 @@
-# syntax=docker.io/docker/dockerfile:1
+# syntax=docker/dockerfile:1
 
 ARG VERSION
 FROM docker.io/library/alpine:${VERSION}
