@@ -42,8 +42,23 @@
       "semanticCommitType": "release"
     },
     {
+      "description": ["Group ghcr.io/phongse/alpine minor updates"],
+      "matchPackageNames": ["ghcr.io/phongse/alpine"],
+      "groupName": "phongse/alpine",
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"]
+    },
+    {
       "description": ["Auto-merge Application Updates"],
       "matchFileNames": ["**/docker-bake.hcl"],
+      "automerge": true,
+      "automergeType": "pr",
+      "ignoreTests": false
+    },
+    {
+      "description": ["Auto-merge ghcr.io/phongse/alpine minor updates"],
+      "matchFileNames": ["**/Dockerfile"],
+      "matchPackageNames": ["ghcr.io/phongse/alpine"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": false
