@@ -39,7 +39,8 @@
       "commitMessageTopic": "{{depName}}",
       "matchFileNames": ["**/docker-bake.hcl", "**/Dockerfile"],
       "semanticCommitScope": "{{parentDir}}",
-      "semanticCommitType": "release"
+      "semanticCommitType": "release",
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     {
       "description": ["Group ghcr.io/phongse/alpine minor updates"],
