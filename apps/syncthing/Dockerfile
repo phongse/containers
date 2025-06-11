@@ -14,10 +14,9 @@ RUN curl -fsSL "https://github.com/syncthing/syncthing/releases/download/v${VERS
 FROM ghcr.io/phongse/alpine:3.22.0@sha256:5dce726f33e47f79ee0d088246d121b6ecb413a9fec297edeb4651ff48e278fa
 
 ENV \
+    HOME=/config \
     STGUIADDRESS=0.0.0.0:8384 \
     STHOMEDIR=/config \
-    STNODEFAULTFOLDER=1 \
-    STNOUPGRADE=1 \
     XDG_STATE_HOME=/config
 
 COPY --chown=root:root --chmod=755 . /app
