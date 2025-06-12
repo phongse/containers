@@ -1,0 +1,8 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
+process:
+  traefik:
+    running: true
+port:
+  tcp6:80:
+    listening: true
