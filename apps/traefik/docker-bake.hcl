@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=github-releases depName=traefik/traefik
-  default = "3.4.1"
+  default = "3.4.2"
 }
 
 variable "SOURCE" {
