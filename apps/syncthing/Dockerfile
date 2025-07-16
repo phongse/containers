@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/phongse/alpine:3.22.0@sha256:98044de70b99325bfeb13a481f86bd1620f9368c7b9ecc91d2e2877a58c71577 AS build
+FROM ghcr.io/phongse/alpine:3.22.0@sha256:126be1dd09dba34147faf59352e10bffde452cb7284453e078e530ec517a90a7 AS build
 ARG TARGETARCH
 ARG VERSION
 
@@ -11,7 +11,7 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN curl -fsSL "https://github.com/syncthing/syncthing/releases/download/v${VERSION}/syncthing-linux-${TARGETARCH}-v${VERSION}.tar.gz" \
     | tar --strip-components=1 -xzf -
 
-FROM ghcr.io/phongse/alpine:3.22.0@sha256:98044de70b99325bfeb13a481f86bd1620f9368c7b9ecc91d2e2877a58c71577
+FROM ghcr.io/phongse/alpine:3.22.0@sha256:126be1dd09dba34147faf59352e10bffde452cb7284453e078e530ec517a90a7
 
 ENV \
     HOME=/config \
