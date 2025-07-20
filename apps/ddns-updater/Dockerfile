@@ -3,6 +3,9 @@
 FROM golang:1.24.5-alpine3.22@sha256:daae04ebad0c21149979cd8e9db38f565ecefd8547cf4a591240dc1972cf1399 AS build
 ARG TARGETARCH
 ARG VERSION
+ARG \
+    # renovate: datasource=repology depName=alpine_3_22/git
+    GIT_VERSION="2.49.1-r0"
 
 ENV \
     CGO_ENABLED=0 \
@@ -13,13 +16,12 @@ WORKDIR /tmp/gobuild
 COPY . /app
 RUN \
     apk --no-cache add \
-        git=2.49.0-r0 \
+        git="${GIT_VERSION}" \
     && git clone --single-branch --branch v${VERSION} --depth 1 https://github.com/qdm12/ddns-updater . \
     && git apply /app/patches/*.patch \
     && go build -trimpath -ldflags="-s -w \
         -X 'main.version=$VERSION' \
         -X 'main.date=$(date +"%Y-%m-%d")' \
-        -X 'main.commit=PATCHED-BUILD' \
         " -o app cmd/ddns-updater/main.go \
     && rm -rf /app/patches/
 
