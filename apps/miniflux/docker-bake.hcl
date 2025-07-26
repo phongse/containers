@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=github-releases depName=miniflux/v2
-  default = "2.2.10"
+  default = "2.2.11"
 }
 
 variable "SOURCE" {
