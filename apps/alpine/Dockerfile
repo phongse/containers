@@ -5,7 +5,7 @@ FROM docker.io/library/alpine:${VERSION}
 
 ARG \
     # renovate: datasource=repology depName=alpine_3_22/ca-certificates
-    CA_CERTIFICATES_VERSION="20250619-r0" \
+    CA_CERTIFICATES_VERSION="20250911-r0" \
     # renovate: datasource=repology depName=alpine_3_22/catatonit
     CATATONIT_VERSION="0.2.1-r0" \
     # renovate: datasource=repology depName=alpine_3_22/curl
