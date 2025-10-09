@@ -10,7 +10,7 @@ variable "VERSION" {
 }
 
 variable "DIGEST" {
-  default = "sha256:265b17e252b9ba4c7b7cf5d5d1042ed537edf6bf16b66130d93864509ca5277f"
+  default = "sha256:4b7ce07002c69e8f3d704a9c5d6fd3053be500b7f1c69fc0d80990c2ad8dd412"
 }
 
 variable "SOURCE" {
