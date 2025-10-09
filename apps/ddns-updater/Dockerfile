@@ -25,7 +25,7 @@ RUN \
         " -o app cmd/ddns-updater/main.go \
     && rm -rf /app/patches/
 
-FROM ghcr.io/phongse/alpine:3.22.1@sha256:3281146614b408ff6cf18f1a1f799f2312be31561c04442a2fbff09fe6ac39c5
+FROM ghcr.io/phongse/alpine:3.22.2@sha256:edc2c6e4db800d0e31807dedb1c76c2b395906b94d59c9e646ec9ce7cfb7d985
 
 ENV \
     BACKUP_DIRECTORY=/config/backup \
