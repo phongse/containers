@@ -246,6 +246,13 @@ jobs:
         run: |
           gh attestation verify --repo ${{ github.repository }} oci://ghcr.io/${{ github.repository_owner }}/${{ inputs.app }}@${{ needs.release.outputs.digest }}
 
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
+
+      - name: Sign Container Image
+        run: |
+          cosign sign --yes ghcr.io/${{ github.repository_owner }}/${{ inputs.app }}@${{ needs.release.outputs.digest }}
+
   announce:
     if: ${{ inputs.release && needs.plan.outputs.app-exists != 'true' }}
     name: Announce
