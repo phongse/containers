@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.25.5-alpine3.22@sha256:3587db7cc96576822c606d119729370dbf581931c5f43ac6d3fa03ab4ed85a10 AS build
+FROM golang:1.25.5-alpine3.23@sha256:26111811bc967321e7b6f852e914d14bede324cd1accb7f81811929a6a57fea9 AS build
 ARG TARGETARCH
 ARG VERSION
 ARG \
-    # renovate: datasource=repology depName=alpine_3_22/git
-    GIT_VERSION="2.49.1-r0"
+    # renovate: datasource=repology depName=alpine_3_23/git
+    GIT_VERSION="2.52.0-r0"
 
 ENV \
     CGO_ENABLED=0 \
