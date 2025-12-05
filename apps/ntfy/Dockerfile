@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/phongse/alpine:3.22.2@sha256:7f57cb600282f668c115e2a4e3646b3cded418a5e69fc8eeb3f8db886348c09d AS build
+FROM ghcr.io/phongse/alpine:3.23.0@sha256:54017f6d20df24182e3a86a64e358edeccfe8130cb209200cf67bf80ab6a2f28 AS build
 ARG TARGETARCH
 ARG VERSION
 
@@ -11,7 +11,7 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN curl -fsSL "https://github.com/binwiederhier/ntfy/releases/download/v${VERSION}/ntfy_${VERSION}_linux_${TARGETARCH}.tar.gz" \
     | tar --strip-components=1 -xzf -
 
-FROM ghcr.io/phongse/alpine:3.22.2@sha256:7f57cb600282f668c115e2a4e3646b3cded418a5e69fc8eeb3f8db886348c09d
+FROM ghcr.io/phongse/alpine:3.23.0@sha256:54017f6d20df24182e3a86a64e358edeccfe8130cb209200cf67bf80ab6a2f28
 
 ENV \
     NTFY_CONFIG_FILE=/config/server.yaml
