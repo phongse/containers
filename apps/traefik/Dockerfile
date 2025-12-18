@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/phongse/alpine:3.23.0@sha256:d8024967d8a950853435af36429f757ad54588b3ec05a2b7f8b32cae1eb53624 AS build
+FROM ghcr.io/phongse/alpine:3.23.2@sha256:429d3b45169755ad17d38a9ff77ed32ed8e6eb7e99d9b6011888a6d2d4c0eb81 AS build
 ARG TARGETARCH
 ARG VERSION
 
@@ -11,7 +11,7 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN curl -fsSL "https://github.com/traefik/traefik/releases/download/v${VERSION}/traefik_v${VERSION}_linux_${TARGETARCH}.tar.gz" \
     | tar -xzf -
 
-FROM ghcr.io/phongse/alpine:3.23.0@sha256:d8024967d8a950853435af36429f757ad54588b3ec05a2b7f8b32cae1eb53624
+FROM ghcr.io/phongse/alpine:3.23.2@sha256:429d3b45169755ad17d38a9ff77ed32ed8e6eb7e99d9b6011888a6d2d4c0eb81
 
 COPY --chown=root:root --chmod=755 . /app
 COPY --from=build --chown=root:root --chmod=755 /traefik /app/bin/traefik
