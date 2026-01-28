@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/phongse/alpine:3.23.2@sha256:429d3b45169755ad17d38a9ff77ed32ed8e6eb7e99d9b6011888a6d2d4c0eb81
+FROM ghcr.io/phongse/alpine:3.23.3@sha256:6890365eb5363653f2716077bea4b26e04171fbb5dc5ad9f830c4d6c29c49b90
 ARG TARGETARCH
 ARG VERSION
 
