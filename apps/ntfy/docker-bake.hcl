@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=github-releases depName=binwiederhier/ntfy
-  default = "2.20.0"
+  default = "2.20.1"
 }
 
 variable "SOURCE" {
