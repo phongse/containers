@@ -11,7 +11,7 @@ ARG \
     # renovate: datasource=repology depName=alpine_3_23/curl
     CURL_VERSION="8.17.0-r1" \
     # renovate: datasource=repology depName=alpine_3_23/tzdata
-    TZDATA_VERSION="2026a-r0"
+    TZDATA_VERSION="2026b-r0"
 
 RUN apk --no-cache --update --upgrade add \
     ca-certificates="${CA_CERTIFICATES_VERSION}" \
