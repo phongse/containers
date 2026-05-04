@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=github-releases depName=qdm12/ddns-updater
-  default = "2.9.0"
+  default = "2.10.0"
 }
 
 variable "SOURCE" {
