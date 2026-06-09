@@ -6,11 +6,11 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=docker depName=docker.io/library/alpine
-  default = "3.23.4"
+  default = "3.24.0"
 }
 
 variable "DIGEST" {
-  default = "sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11"
+  default = "sha256:660e0827bd401543d81323d4886abbd08fda0fe3ba84337837d0b11a67251283"
 }
 
 variable "SOURCE" {
