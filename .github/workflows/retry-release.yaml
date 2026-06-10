@@ -50,7 +50,7 @@ jobs:
           private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
 
       - name: Install regctl
-        uses: regclient/actions/regctl-installer@c70ad64367908075211b10dcd2ab9fad4bfa1816 # main
+        uses: regclient/actions/regctl-installer@14f9d37db17b5dc41fefd1ffdd1af4b9e2490560 # main
 
       - name: Get Bake Options
         id: app-options
