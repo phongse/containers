@@ -9,7 +9,7 @@ ARG \
     # renovate: datasource=repology depName=alpine_3_23/catatonit
     CATATONIT_VERSION="0.2.1-r0" \
     # renovate: datasource=repology depName=alpine_3_23/curl
-    CURL_VERSION="8.17.0-r1" \
+    CURL_VERSION="8.20.0-r0" \
     # renovate: datasource=repology depName=alpine_3_23/tzdata
     TZDATA_VERSION="2026a-r0"
 
